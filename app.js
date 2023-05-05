@@ -3,6 +3,7 @@ import  cors from "cors"
 import dotenv from "dotenv"
 import bodyParser from "body-parser";
 import {translate} from "./traslate.js"
+import { PORT } from "./config.js";
 
 dotenv.config()
 
@@ -28,7 +29,7 @@ app.post("/", async (req,res)=>{
   return res.json(resp)
   
 } catch (error) {
-  return res.statusCode(400).send({error:"Intentalo nuevamente"})
+  return res.code(400).send({error:"Intentalo nuevamente"})
 
 }
 
@@ -36,6 +37,6 @@ app.post("/", async (req,res)=>{
 
 
 
-app.listen(process.env.PORT, () => {
-  console.log('Servidor en ejecución en el puerto',process.env.PORT);
+app.listen(PORT, () => {
+  console.log('Servidor en ejecución en el puerto', PORT);
 });
